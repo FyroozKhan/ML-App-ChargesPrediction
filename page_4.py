@@ -184,7 +184,7 @@ def show_healthcare_ml_page():
     model_important.fit(X_train_imp, y_train)
     y_pred_important = model_important.predict(X_test_imp)
 
-    st.write(f"Simplified Model R²: {r2_score(y_test, y_pred_important):.3f}, RMSE: ${mean_squared_error(y_test, y_pred_important, squared=False):,.2f}")
+    st.write(f"Simplified Model R²: {r2_score(y_test, y_pred_important):.3f}, RMSE: ${np.sqrt(mean_squared_error(y_test, y_pred_important)):,.2f}")
 
     # Plot
     fig4 = px.scatter(
