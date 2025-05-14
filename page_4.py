@@ -15,7 +15,10 @@ import joblib
 
 @st.cache_data
 def load_data():
-    return pd.read_csv(r"C:\\GWU\\Build_Project\\Week8\\healthdata.csv")
+    # Robust path handling
+    current_dir = os.path.dirname(__file__)
+    file_path = os.path.join(current_dir, "healthdata.csv")
+    return pd.read_csv(file_path)
 
 def show_healthcare_ml_page():
     st.title("Developing HealthCare Cost Predictor: A Data Science Web Application")
