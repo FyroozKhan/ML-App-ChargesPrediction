@@ -6,7 +6,7 @@ from page_4 import show_healthcare_ml_page
 from page_5 import show_healthcare_predict_page
 
 # Sidebar navigation with vertical layout
-st.sidebar.title("Navigation")
+st.sidebar.title("Navigation Bar")
 page = st.sidebar.radio("Go to", [
     "1. Data Exploration",
     "2. Exploratory Data Analysis (EDA)",
