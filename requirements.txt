@@ -4,6 +4,6 @@ numpy
 joblib
 matplotlib
 seaborn
-scikit-learn
+scikit-learn>=0.22
 plotly
 xgboost
