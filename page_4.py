@@ -105,7 +105,7 @@ def show_healthcare_ml_page():
     y_pred = model.predict(X_test)
 
     # Performance Evaluation
-    st.write(f"With Interaction R²: {r2_score(y_test, y_pred):.3f}, RMSE: ${mean_squared_error(y_test, y_pred, squared=False):,.2f}")
+    st.write(f"With Interaction R²: {r2_score(y_test, y_pred):.3f}, RMSE: ${np.sqrt(mean_squared_error(y_test, y_pred)):,.2f}")
 
     # Plot
     fig2 = px.scatter(
