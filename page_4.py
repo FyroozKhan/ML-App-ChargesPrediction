@@ -222,7 +222,8 @@ def show_healthcare_ml_page():
     # Lasso Model
     lasso = Lasso(alpha=0.1)
     lasso.fit(X_train, y_train)
-    st.write(f"Lasso R²: {r2_score(y_test, lasso.predict(X_test)):.3f}, RMSE: ${mean_squared_error(y_test, lasso.predict(X_test), squared=False):,.2f}")
+    lasso_preds = lasso.predict(X_test)
+    st.write(f"Lasso R²: {r2_score(y_test, lasso_preds):.3f}, RMSE: ${np.sqrt(mean_squared_error(y_test, lasso_preds)):,.2f}")
 
     st.markdown("""
     Both Ridge and Lasso models improve the baseline model by providing regularization, reducing overfitting. The results show very similar performance with R² = 0.866 and RMSE around $4,564.
