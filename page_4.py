@@ -217,7 +217,9 @@ def show_healthcare_ml_page():
     # Ridge Model
     ridge = Ridge(alpha=1.0)
     ridge.fit(X_train, y_train)
-    st.write(f"Ridge R²: {r2_score(y_test, ridge.predict(X_test)):.3f}, RMSE: ${mean_squared_error(y_test, ridge.predict(X_test), squared=False):,.2f}")
+    ridge_preds = ridge.predict(X_test)
+    st.write(f"Ridge R²: {r2_score(y_test, ridge_preds):.3f}, RMSE: ${np.sqrt(mean_squared_error(y_test, ridge_preds)):,.2f}")
+
 
     # Lasso Model
     lasso = Lasso(alpha=0.1)
@@ -238,12 +240,15 @@ def show_healthcare_ml_page():
     # Random Forest Model
     rf = RandomForestRegressor(n_estimators=100, random_state=42)
     rf.fit(X_train, y_train)
-    st.write(f"RF R²: {r2_score(y_test, rf.predict(X_test)):.3f}, RMSE: ${mean_squared_error(y_test, rf.predict(X_test), squared=False):,.2f}")
+    rf_preds = rf.predict(X_test)
+    st.write(f"RF R²: {r2_score(y_test, rf_preds):.3f}, RMSE: ${np.sqrt(mean_squared_error(y_test, rf_preds)):,.2f}")
+
 
     # XGBoost Model
     xgb = XGBRegressor(n_estimators=100, random_state=42)
     xgb.fit(X_train, y_train)
-    st.write(f"XGB R²: {r2_score(y_test, xgb.predict(X_test)):.3f}, RMSE: ${mean_squared_error(y_test, xgb.predict(X_test), squared=False):,.2f}")
+    xgb_preds = xgb.predict(X_test)
+    st.write(f"XGB R²: {r2_score(y_test, xgb_preds):.3f}, RMSE: ${np.sqrt(mean_squared_error(y_test, xgb_preds)):,.2f}")
 
     st.markdown("""
     Both Random Forest and XGBoost outperform the linear models, with R² values around 0.866 and RMSE just over $4,500. These ensemble models capture more complex relationships between the features and target variable.
