@@ -22,7 +22,7 @@ def show_healthcare_explore_page():
     st.markdown(
         """
         #### Overview of the Dataset
-        - **The link to the data is:** [Healthdata](https://github.com/FyroozKhan/Health_App)
+        - **The link to the data is:** [Healthdata](https://github.com/FyroozKhan/ML-App-ChargesPrediction/blob/main/healthdata.csv)
         - **Rows & Columns:** 1,338 records × 7 columns 
         """
     )
